@@ -1,0 +1,31 @@
+# This example shows how to switch off discovering any new API files and
+# only audit the API files you have specifically mapped to existing
+# APIs in 42Crunch Platform.
+#
+# When the CI/CD plugin starts, it creates an API collection in 42Crunch Platform
+# using the name of the repository and branch directly from your source control.
+#
+# The plugin uploads any APIs it finds during the discovery phase
+# into this API collection. On subsequent runs, the collection
+# is kept is sync with the API files in your source repository.
+#
+# Discovery is enabled by default. However, you can switch it off
+# and rely solely on mappings if you do not want to use discovery.
+#
+# To configure the mapping, you must know the API UUID of the existing API
+# in 42Crunch Platform (you can check it in the API summary on
+# the platform). You list the filenames and the corresponding API UUIDs
+# in the 'mapping' section. To switch off the discovery phase for any
+# unmapped files, specify 'discovery: false', as shown below.
+#
+# In this example, the sample 'petstore.json' is uploaded to the platform,
+# updating the API with the UUID 'e7cd62ce-1ee9-4320-af33-8bd9519c6f48'
+# with its contents. The sample 'petstore.yaml' is unmapped and thus
+# is not uploaded to the platform at all.
+
+audit:
+  branches:
+    main:
+      mapping:
+        Pixi-InitialVersion.json: b488e862-a459-4f29-abf4-722f475404b9
+      discovery: false
