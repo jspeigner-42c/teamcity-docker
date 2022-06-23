@@ -1,0 +1,28 @@
+{
+  "name": "api-security-audit-action",
+  "version": "0.0.0",
+  "description": "Performs API contract security audit to get a detailed analysis of the possible vulnerabilities and other issues in the API contract.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jspeigner-42c/api-security-audit-action.git"
+  },
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@octokit/core": "^3.5.1",
+    "@types/turndown": "^5.0.0",
+    "@xliic/cicd-core-node": "^5.6.0",
+    "got": "^11.8.3",
+    "turndown": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/got": "^9.6.12",
+    "@types/node": "^14.14.21",
+    "typescript": "^4.2.2"
+  }
+}
