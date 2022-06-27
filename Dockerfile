@@ -11,5 +11,8 @@ RUN mkdir /action
 COPY --from=builder /build/package.json /action
 COPY --from=builder /build/node_modules /action/node_modules
 COPY --from=builder /build/dist /action/dist
-
+RUN mkdir /home/workspace \      
+           cd /home/workspace \        
+           git clone https://github.com/jspeigner-42c/teamcity-docker.git
+           
 ENTRYPOINT [ "/sbin/tini", "--", "node", "/action/dist/index.js" ]
