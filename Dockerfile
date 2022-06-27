@@ -6,9 +6,6 @@ RUN npm ci && npm run build && npm prune --production
 FROM node:14.18.3-alpine3.15
 ENV NODE_ENV=production
 RUN apk add --no-cache tini
-#Install git
-RUN apt-get update \        
-     apt-get install -y git
      
 RUN mkdir /action
 COPY --from=builder /build/package.json /action
